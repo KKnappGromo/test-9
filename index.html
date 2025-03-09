@@ -481,6 +481,7 @@
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
       if(username && email && password) {
+        // Store user profile in localStorage
         localStorage.setItem("userProfile", JSON.stringify({username, email, password}));
         document.getElementById('loginPage').style.display = 'none';
         document.getElementById('appPage').style.display = 'flex';
@@ -590,6 +591,7 @@
         players[playerIndex].setVolume(volume);
       }
     }
+    // Global play starts all players concurrently
     function globalPlay() {
       players.forEach(function(player) {
         if (player.unMute) player.unMute();
@@ -647,8 +649,6 @@
         if (remaining <= 0) {
           clearInterval(fadeTimer);
           counterElem.innerHTML = "Fade out complete";
-          // Stop all players after fade-out finishes
-          globalStop();
         } else {
           counterElem.innerHTML = "Fade out in progress: " + remaining + " sec";
         }
