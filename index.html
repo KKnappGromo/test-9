@@ -27,13 +27,19 @@
       z-index: -1;
     }
     
-    /* New Group Panel for Controls */
+    /* Group Panel (Reusable for controls, timers, presets) */
     .group-panel {
       background: #262626;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 15px;
+      border-radius: 8px;
       margin-bottom: 20px;
       text-align: center;
+    }
+    
+    /* Special preset panel uses same colors as sound panels */
+    .preset-panel {
+      background: #2c2c2c;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
     
     /* Landing Page */
@@ -107,7 +113,7 @@
     }
     #loginForm button:hover { background: #b7952b; }
     
-    /* App Page & Profile Page Styles */
+    /* App Page & Profile Page */
     #appPage, #profilePage {
       display: none;
       flex-direction: column;
@@ -142,39 +148,30 @@
       margin: 0 auto;
     }
     
-    /* Global Controls Panel (Play & Stop) */
-    .controls-panel {
-      margin-bottom: 20px;
+    /* Global Controls Panel (Play All & Stop All) */
+    .controls-panel button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      background: linear-gradient(45deg, #d4af37, #ffdf80);
+      border: none;
+      border-radius: 8px;
+      color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-    
-    /* Timer Panel (Fade Duration & Start Timer) */
-    .timer-panel {
-      margin-bottom: 20px;
+    .controls-panel button:hover {
+      background: linear-gradient(45deg, #b7952b, #ffc966);
     }
-    
-    .controls-panel button,
-    .timer-panel button,
-    .controls input[type="number"],
-    .controls select,
-    .timer-panel input[type="number"],
-    .timer-panel select {
-      /* Inherit existing button/input styles from .controls */
-    }
-    
-    .controls, .timer-controls {
+    .controls {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
       align-items: center;
     }
-    
-    .controls label, .timer-controls label { font-size: 1em; }
-    
+    .controls label { font-size: 1em; }
     .controls input[type="number"],
-    .controls select,
-    .timer-controls input[type="number"],
-    .timer-controls select {
+    .controls select {
       width: 80px;
       padding: 5px;
       border: 1px solid #444;
@@ -182,13 +179,48 @@
       background: #1e1e1e;
       color: #f5f5f5;
     }
-    
+    /* Timer Panel */
+    .timer-panel {
+      margin-bottom: 20px;
+    }
+    .timer-controls {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .timer-controls label { font-size: 1em; }
+    .timer-controls input[type="number"],
+    .timer-controls select {
+      width: 60px;
+      padding: 5px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #1e1e1e;
+      color: #f5f5f5;
+    }
+    /* Fade Out All Button (Placed at bottom of timer panel) */
+    .timer-panel > div:last-child button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      background: linear-gradient(45deg, #d4af37, #ffdf80);
+      border: none;
+      border-radius: 8px;
+      color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .timer-panel > div:last-child button:hover {
+      background: linear-gradient(45deg, #b7952b, #ffc966);
+    }
     #fadeCounter { text-align: center; margin-top: 10px; font-size: 1.1em; }
     
-    /* Add Sound Button (moved below players grid) */
+    /* Add Sound Button */
     .add-sound {
       text-align: center;
-      margin-bottom: 20px;
+      margin: 30px 0 20px; /* extra space on top */
     }
     .add-sound button {
       padding: 10px 20px;
@@ -213,11 +245,9 @@
       padding: 15px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      position: relative; /* For remove button positioning */
+      position: relative;
     }
     .player-control h3 { margin-bottom: 5px; color: #d4af37; }
-    
-    /* Editable Sound Name */
     .player-control input.soundName {
       width: 100%;
       padding: 5px;
@@ -251,7 +281,7 @@
       margin-top: 5px;
     }
     .player-control button:hover { background: #b7952b; }
-    /* Remove button in panels positioned at the upper right */
+    /* Remove button positioned in upper right */
     .remove-btn {
       position: absolute;
       top: 5px;
@@ -260,12 +290,16 @@
       font-size: 0.8em;
     }
     
-    /* Preset Controls */
-    .preset-controls {
-      margin: 20px 0;
+    /* Preset Panel */
+    .preset-panel {
+      background: #2c2c2c;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
       text-align: center;
+      margin-bottom: 20px;
     }
-    .preset-controls input[type="text"] {
+    .preset-panel input[type="text"] {
       padding: 8px;
       width: 200px;
       margin-right: 10px;
@@ -274,14 +308,14 @@
       background: #1e1e1e;
       color: #f5f5f5;
     }
-    .preset-controls select {
+    .preset-panel select {
       padding: 5px;
       border: 1px solid #444;
       border-radius: 5px;
       background: #1e1e1e;
       color: #f5f5f5;
     }
-    .preset-controls button {
+    .preset-panel button {
       padding: 8px 15px;
       border: none;
       border-radius: 5px;
@@ -291,7 +325,7 @@
       transition: background 0.3s;
       margin: 5px;
     }
-    .preset-controls button:hover { background: #b7952b; }
+    .preset-panel button:hover { background: #b7952b; }
     
     footer {
       background: #262626;
@@ -353,8 +387,8 @@
       header h1 { font-size: 1.5em; }
       #loginForm { width: 90%; padding: 20px; }
       main { padding: 10px; }
-      .controls button, .preset-controls button {
-        padding: 8px 12px; font-size: 0.9em;
+      .controls-panel button, .timer-panel button, .preset-panel button {
+        padding: 8px 12px; font-size: 1em;
       }
       .controls input[type="number"], .controls select { width: 60px; }
       .player-control input.soundName, .player-control input.videoInput { font-size: 0.9em; }
@@ -398,12 +432,13 @@
       </div>
     </header>
     <main>
-      <!-- Group Panel: Global Controls (Play All / Stop All) -->
+      <!-- Group Panel: Global Controls -->
       <div class="group-panel controls-panel">
         <button onclick="globalPlay()">Play All</button>
         <button onclick="globalStop()">Stop All</button>
       </div>
-      <!-- Group Panel: Timer Controls (Fade Duration & Start Fade Timer) -->
+      
+      <!-- Group Panel: Timer Controls -->
       <div class="group-panel timer-panel">
         <div class="controls">
           <label for="fadeDurationInput">Fade Duration:</label>
@@ -413,10 +448,6 @@
             <option value="minutes" selected>Minutes</option>
             <option value="hours">Hours</option>
           </select>
-          <button onclick="fadeOutAll()">Fade Out All</button>
-          <div id="fadeCounter"></div>
-        </div>
-        <div class="timer-controls" style="margin-top: 10px;">
           <label for="startTimerInput">Start Fade in:</label>
           <input type="number" id="startTimerInput" value="0" min="0" />
           <select id="startTimerUnit">
@@ -425,8 +456,13 @@
             <option value="hours">Hours</option>
           </select>
         </div>
+        <div style="margin-top: 10px;">
+          <button onclick="fadeOutAll()">Fade Out All</button>
+          <div id="fadeCounter" style="margin-top: 10px;"></div>
+        </div>
       </div>
-      <!-- Players Grid -->
+      
+      <!-- Players Grid (Sound Panels) -->
       <div class="players-grid" id="playersGrid">
         <!-- Default 6 Panels -->
         <div class="player-control" id="player-control-1">
@@ -478,12 +514,12 @@
           <button class="remove-btn" onclick="removeSoundPanel(5)" id="removeBtn6">Remove</button>
         </div>
       </div>
-      <!-- Add Sound Button (Moved above Preset Controls) -->
+      <!-- Add Sound Button (moved above preset panel) -->
       <div class="add-sound">
         <button onclick="addSoundPanel()">Add Sound</button>
       </div>
-      <!-- Preset Controls -->
-      <div class="preset-controls">
+      <!-- Preset Panel -->
+      <div class="group-panel preset-panel">
         <input type="text" id="newPresetName" placeholder="New Preset Name">
         <button onclick="savePreset()">Save Preset</button>
         <br>
@@ -612,7 +648,6 @@
     ];
     function onYouTubeIframeAPIReady() {
       var container = document.getElementById('players-container');
-      // Initialize the default 6 players (if defined in HTML)
       for (let i = 0; i < 6; i++) {
         let div = document.getElementById('player' + i);
         if (!div) {
@@ -675,14 +710,13 @@
       return match ? match[1] : input;
     }
     function fadeOutAll() {
-      // Read the delay timer value
+      // Get the delay before starting fade out.
       let timerValue = parseInt(document.getElementById('startTimerInput').value);
       let timerUnit = document.getElementById('startTimerUnit').value;
       let delaySec = timerUnit === 'minutes' ? timerValue * 60 :
                      timerUnit === 'hours' ? timerValue * 3600 :
                      timerValue;
       
-      // After the delay, begin fade out
       setTimeout(function() {
         let durationValue = parseInt(document.getElementById('fadeDurationInput').value);
         let unit = document.getElementById('fadeDurationUnit').value;
