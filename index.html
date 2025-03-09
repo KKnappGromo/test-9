@@ -6,11 +6,7 @@
   <title>Sleep Music Mixer</title>
   <style>
     /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     /* Global Styles */
     body {
       background: #1e1e1e;
@@ -24,10 +20,8 @@
     /* Visualizer Canvas */
     #visualizer {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: -1;
     }
     /* Login Page Styles */
@@ -41,37 +35,24 @@
       background: #262626;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       width: 300px;
       text-align: center;
     }
-    #loginForm h2 {
-      margin-bottom: 20px;
-      color: #d4af37;
-    }
+    #loginForm h2 { margin-bottom: 20px; color: #d4af37; }
     #loginForm input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
-      color: #f5f5f5;
+      width: 100%; padding: 10px; margin-bottom: 15px;
+      border: 1px solid #444; border-radius: 5px;
+      background: #1e1e1e; color: #f5f5f5;
     }
     #loginForm button {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background: #d4af37;
-      color: #1e1e1e;
-      cursor: pointer;
-      font-size: 1em;
+      width: 100%; padding: 10px;
+      border: none; border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
+      cursor: pointer; font-size: 1em;
       transition: background 0.3s;
     }
-    #loginForm button:hover {
-      background: #b7952b;
-    }
+    #loginForm button:hover { background: #b7952b; }
     /* App Page Styles (flex layout for sticky footer) */
     #appPage {
       display: none;
@@ -86,29 +67,17 @@
       padding: 20px;
       border-bottom: 1px solid #444;
     }
-    header h1 {
-      font-size: 2em;
-      margin: 0;
-      color: #d4af37;
-    }
+    header h1 { font-size: 2em; color: #d4af37; }
     /* User Profile in Header */
-    #userProfile {
-      font-size: 1em;
-    }
+    #userProfile { font-size: 1em; }
     #userProfile button {
-      margin-left: 10px;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      background: #d4af37;
-      color: #1e1e1e;
-      cursor: pointer;
-      font-size: 0.9em;
+      margin-left: 10px; padding: 5px 10px;
+      border: none; border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
+      cursor: pointer; font-size: 0.9em;
       transition: background 0.3s;
     }
-    #userProfile button:hover {
-      background: #b7952b;
-    }
+    #userProfile button:hover { background: #b7952b; }
     main {
       flex: 1;
       padding: 20px;
@@ -134,27 +103,31 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    .controls button:hover {
-      background: #b7952b;
-    }
-    .controls label {
-      font-size: 1em;
-    }
+    .controls button:hover { background: #b7952b; }
+    .controls label { font-size: 1em; }
     .controls input[type="number"],
     .controls select {
-      width: 80px;
-      padding: 5px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
-      color: #f5f5f5;
+      width: 80px; padding: 5px;
+      border: 1px solid #444; border-radius: 5px;
+      background: #1e1e1e; color: #f5f5f5;
     }
-    #fadeCounter {
-      width: 100%;
+    #fadeCounter { text-align: center; margin-top: 10px; font-size: 1.1em; }
+    /* Add Sound Button */
+    .add-sound {
       text-align: center;
-      margin-top: 10px;
-      font-size: 1.1em;
+      margin-bottom: 20px;
     }
+    .add-sound button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background: #d4af37;
+      color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .add-sound button:hover { background: #b7952b; }
     /* Players Grid */
     .players-grid {
       display: grid;
@@ -165,82 +138,57 @@
       background: #2c2c2c;
       padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
-    .player-control h3 {
-      margin-bottom: 5px;
-      color: #d4af37;
-    }
+    .player-control h3 { margin-bottom: 5px; color: #d4af37; }
     /* Editable Sound Name */
     .player-control input.soundName {
-      width: 100%;
-      padding: 5px;
-      margin-bottom: 5px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
+      width: 100%; padding: 5px;
+      margin-bottom: 5px; border: 1px solid #444;
+      border-radius: 5px; background: #1e1e1e;
       color: #f5f5f5;
     }
     .player-control input[type="range"] {
-      width: 100%;
-      margin: 10px 0;
+      width: 100%; margin: 10px 0;
     }
     .player-control input[type="text"].videoInput {
       width: calc(100% - 20px);
-      margin: 5px 10px;
-      padding: 8px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
-      color: #f5f5f5;
+      margin: 5px 10px; padding: 8px;
+      border: 1px solid #444; border-radius: 5px;
+      background: #1e1e1e; color: #f5f5f5;
     }
     .player-control button {
       padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      background: #d4af37;
-      color: #1e1e1e;
+      border: none; border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
       cursor: pointer;
       transition: background 0.3s;
       margin-top: 5px;
     }
-    .player-control button:hover {
-      background: #b7952b;
-    }
+    .player-control button:hover { background: #b7952b; }
     /* Preset Controls */
     .preset-controls {
-      margin: 20px 0;
-      text-align: center;
+      margin: 20px 0; text-align: center;
     }
     .preset-controls input[type="text"] {
-      padding: 8px;
-      width: 200px;
-      margin-right: 10px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
-      color: #f5f5f5;
+      padding: 8px; width: 200px; margin-right: 10px;
+      border: 1px solid #444; border-radius: 5px;
+      background: #1e1e1e; color: #f5f5f5;
     }
     .preset-controls select {
-      padding: 5px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
+      padding: 5px; border: 1px solid #444;
+      border-radius: 5px; background: #1e1e1e;
       color: #f5f5f5;
     }
     .preset-controls button {
       padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      background: #d4af37;
-      color: #1e1e1e;
+      border: none; border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
       cursor: pointer;
       transition: background 0.3s;
       margin: 5px;
     }
-    .preset-controls button:hover {
-      background: #b7952b;
-    }
+    .preset-controls button:hover { background: #b7952b; }
     footer {
       background: #262626;
       padding: 20px;
@@ -255,50 +203,26 @@
       margin: 20px auto;
       background: #262626;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-    #profilePage h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #d4af37;
-    }
+    #profilePage h2 { text-align: center; margin-bottom: 20px; color: #d4af37; }
     #profilePage input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #444;
-      border-radius: 5px;
-      background: #1e1e1e;
-      color: #f5f5f5;
+      width: 100%; padding: 10px; margin-bottom: 15px;
+      border: 1px solid #444; border-radius: 5px;
+      background: #1e1e1e; color: #f5f5f5;
     }
     #profilePage button {
-      padding: 10px;
-      border: none;
+      padding: 10px; border: none;
       border-radius: 5px;
-      background: #d4af37;
-      color: #1e1e1e;
-      cursor: pointer;
-      width: 48%;
-      margin: 5px 1%;
-      transition: background 0.3s;
+      background: #d4af37; color: #1e1e1e;
+      cursor: pointer; width: 48%;
+      margin: 5px 1%; transition: background 0.3s;
     }
-    #profilePage button:hover {
-      background: #b7952b;
-    }
-    #profilePresets {
-      margin-top: 20px;
-    }
-    #profilePresets h3 {
-      margin-bottom: 10px;
-      color: #d4af37;
-    }
-    #profilePresets ul {
-      list-style: none;
-      padding-left: 10px;
-    }
-    #profilePresets li {
-      margin-bottom: 5px;
-    }
+    #profilePage button:hover { background: #b7952b; }
+    #profilePresets { margin-top: 20px; }
+    #profilePresets h3 { margin-bottom: 10px; color: #d4af37; }
+    #profilePresets ul { list-style: none; padding-left: 10px; }
+    #profilePresets li { margin-bottom: 5px; }
     /* Hide YouTube players */
     .hidden-player {
       position: absolute;
@@ -307,48 +231,23 @@
       overflow: hidden;
       opacity: 0;
     }
-    /* Responsive Adjustments for Tablets and Larger Smartphones */
-    @media (max-width: 768px) {
-      .controls {
-        flex-direction: column;
-      }
-    }
-    /* Additional Responsive Adjustments for Smartphone Screens */
+    /* Responsive Adjustments */
+    @media (max-width: 768px) { .controls { flex-direction: column; } }
     @media (max-width: 600px) {
-      body {
-        font-size: 14px;
-      }
-      header h1 {
-        font-size: 1.5em;
-      }
-      #loginForm {
-        width: 90%;
-        padding: 20px;
-      }
-      main {
-        padding: 10px;
-      }
+      body { font-size: 14px; }
+      header h1 { font-size: 1.5em; }
+      #loginForm { width: 90%; padding: 20px; }
+      main { padding: 10px; }
       .controls button, .preset-controls button {
-        padding: 8px 12px;
+        padding: 8px 12px; font-size: 0.9em;
+      }
+      .controls input[type="number"], .controls select { width: 60px; }
+      .player-control input.soundName, .player-control input.videoInput {
         font-size: 0.9em;
       }
-      .controls input[type="number"], .controls select {
-        width: 60px;
-      }
-      .player-control input.soundName, 
-      .player-control input.videoInput {
-        font-size: 0.9em;
-      }
-      .player-control button {
-        padding: 5px 8px;
-        font-size: 0.9em;
-      }
-      .players-grid {
-        grid-template-columns: 1fr;
-      }
-      #userProfile {
-        font-size: 0.8em;
-      }
+      .player-control button { padding: 5px 8px; font-size: 0.9em; }
+      .players-grid { grid-template-columns: 1fr; }
+      #userProfile { font-size: 0.8em; }
     }
   </style>
 </head>
@@ -391,52 +290,57 @@
         <button onclick="fadeOutAll()">Fade Out All</button>
         <div id="fadeCounter"></div>
       </div>
-      <!-- Players Grid (6 Sounds) with Editable Names -->
-      <div class="players-grid">
+      <!-- Add Sound Button -->
+      <div class="add-sound">
+        <button onclick="addSoundPanel()">Add Sound</button>
+      </div>
+      <!-- Players Grid (Sound Panels) -->
+      <div class="players-grid" id="playersGrid">
+        <!-- Initially 6 sound panels defined in HTML -->
         <div class="player-control" id="player-control-1">
-          <input type="text" class="soundName" id="soundName1" value="Sound 1" />
+          <input type="text" class="soundName" id="soundName1" value="River sounds" />
           <input type="text" class="videoInput" id="videoInput1" placeholder="YouTube video ID or URL" value="nE_XAauwu1I"/>
           <button onclick="loadVideo(0)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider1" oninput="updateVolume(0, this.value)">
           <label for="slider1">Volume</label>
         </div>
         <div class="player-control" id="player-control-2">
-          <input type="text" class="soundName" id="soundName2" value="Sound 2" />
+          <input type="text" class="soundName" id="soundName2" value="Palm Tree Sounds" />
           <input type="text" class="videoInput" id="videoInput2" placeholder="YouTube video ID or URL" value="H2gIQ8p1HQA"/>
           <button onclick="loadVideo(1)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider2" oninput="updateVolume(1, this.value)">
           <label for="slider2">Volume</label>
         </div>
         <div class="player-control" id="player-control-3">
-          <input type="text" class="soundName" id="soundName3" value="Sound 3" />
+          <input type="text" class="soundName" id="soundName3" value="Gong sounds" />
           <input type="text" class="videoInput" id="videoInput3" placeholder="YouTube video ID or URL" value="b1iq8y9Tvd4"/>
           <button onclick="loadVideo(2)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider3" oninput="updateVolume(2, this.value)">
           <label for="slider3">Volume</label>
         </div>
         <div class="player-control" id="player-control-4">
-          <input type="text" class="soundName" id="soundName4" value="Sound 4" />
+          <input type="text" class="soundName" id="soundName4" value="Rain sounds" />
           <input type="text" class="videoInput" id="videoInput4" placeholder="YouTube video ID or URL" value="jX6kn9_U8qk"/>
           <button onclick="loadVideo(3)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider4" oninput="updateVolume(3, this.value)">
           <label for="slider4">Volume</label>
         </div>
         <div class="player-control" id="player-control-5">
-          <input type="text" class="soundName" id="soundName5" value="Sound 5" />
+          <input type="text" class="soundName" id="soundName5" value="City sounds" />
           <input type="text" class="videoInput" id="videoInput5" placeholder="YouTube video ID or URL" value="YF3pj_3mdMc"/>
           <button onclick="loadVideo(4)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider5" oninput="updateVolume(4, this.value)">
           <label for="slider5">Volume</label>
         </div>
         <div class="player-control" id="player-control-6">
-          <input type="text" class="soundName" id="soundName6" value="Sound 6" />
+          <input type="text" class="soundName" id="soundName6" value="Bird sounds" />
           <input type="text" class="videoInput" id="videoInput6" placeholder="YouTube video ID or URL" value="MOu4_wpy40U"/>
           <button onclick="loadVideo(5)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider6" oninput="updateVolume(5, this.value)">
           <label for="slider6">Volume</label>
         </div>
       </div>
-      <!-- Preset Controls: Save new preset and load from dropdown -->
+      <!-- Preset Controls -->
       <div class="preset-controls">
         <input type="text" id="newPresetName" placeholder="New Preset Name">
         <button onclick="savePreset()">Save Preset</button>
@@ -451,7 +355,7 @@
     </footer>
   </div>
 
-  <!-- Profile Page for Editing User Info & Viewing Presets -->
+  <!-- Profile Page -->
   <div id="profilePage">
     <h2>User Profile Settings</h2>
     <input type="text" id="profileUsername" placeholder="Username">
@@ -555,13 +459,20 @@
       "YF3pj_3mdMc",
       "MOu4_wpy40U"
     ];
+    // onYouTubeIframeAPIReady is called automatically by the YouTube API
     function onYouTubeIframeAPIReady() {
       var container = document.getElementById('players-container');
+      // Initialize the 6 default players (they are defined in HTML)
       for (let i = 0; i < 6; i++) {
-        let div = document.createElement('div');
-        div.id = 'player' + i;
-        container.appendChild(div);
-        players[i] = new YT.Player('player' + i, {
+        let div = document.getElementById('player' + i);
+        // If the player container doesn't exist (from dynamic addition), create it:
+        if (!div) {
+          div = document.createElement('div');
+          div.id = 'player' + i;
+          container.appendChild(div);
+        }
+        // Create a new YT.Player for each container
+        players[i] = new YT.Player(div.id, {
           height: '0',
           width: '0',
           videoId: defaultVideos[i],
@@ -572,9 +483,7 @@
             'playlist': defaultVideos[i],
             'playsinline': 1
           },
-          events: {
-            'onReady': onPlayerReady
-          }
+          events: { 'onReady': onPlayerReady }
         });
       }
     }
@@ -583,6 +492,7 @@
       if (index > -1) {
         let slider = document.getElementById('slider' + (index + 1));
         event.target.setVolume(parseInt(slider.value));
+        event.target.unMute();
       }
     }
     function updateVolume(playerIndex, volume) {
@@ -590,7 +500,6 @@
         players[playerIndex].setVolume(volume);
       }
     }
-    // Global play now starts all players concurrently
     function globalPlay() {
       players.forEach(function(player) {
         if (player.unMute) player.unMute();
@@ -620,10 +529,9 @@
     function fadeOutAll() {
       let durationValue = parseInt(document.getElementById('fadeDurationInput').value);
       let unit = document.getElementById('fadeDurationUnit').value;
-      let fadeDurationSec;
-      if (unit === 'minutes') fadeDurationSec = durationValue * 60;
-      else if (unit === 'hours') fadeDurationSec = durationValue * 3600;
-      else fadeDurationSec = durationValue;
+      let fadeDurationSec = unit === 'minutes' ? durationValue * 60 :
+                            unit === 'hours' ? durationValue * 3600 :
+                            durationValue;
       let fadeDuration = fadeDurationSec * 1000;
       let steps = 50;
       let stepDuration = fadeDuration / steps;
@@ -648,6 +556,8 @@
         if (remaining <= 0) {
           clearInterval(fadeTimer);
           counterElem.innerHTML = "Fade out complete";
+          // Stop all players after fade-out finishes
+          globalStop();
         } else {
           counterElem.innerHTML = "Fade out in progress: " + remaining + " sec";
         }
@@ -659,12 +569,9 @@
        --------------------- */
     function savePreset() {
       let presetName = document.getElementById('newPresetName').value;
-      if (!presetName) {
-        alert("Please enter a preset name.");
-        return;
-      }
+      if (!presetName) { alert("Please enter a preset name."); return; }
       let presetData = [];
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < players.length; i++) {
         let videoId = document.getElementById('videoInput' + (i + 1)).value;
         let volume = document.getElementById('slider' + (i + 1)).value;
         let soundName = document.getElementById('soundName' + (i + 1)).value;
@@ -690,25 +597,24 @@
     function loadSelectedPreset() {
       let presetSelect = document.getElementById('presetList');
       let key = presetSelect.value;
-      if (!key) {
-        alert("No preset selected.");
-        return;
-      }
+      if (!key) { alert("No preset selected."); return; }
       let presetData = localStorage.getItem(key);
-      if (!presetData) {
-        alert("Preset not found.");
-        return;
-      }
+      if (!presetData) { alert("Preset not found."); return; }
       let preset = JSON.parse(presetData);
-      preset.forEach(function(data, index) {
-        document.getElementById('videoInput' + (index + 1)).value = data.videoId;
-        document.getElementById('slider' + (index + 1)).value = data.volume;
-        document.getElementById('soundName' + (index + 1)).value = data.soundName;
-        if (data.videoId) loadVideo(index);
-        else updateVolume(index, data.volume);
-      });
+      // Adjust the number of sound panels if needed
+      while (players.length < preset.length) {
+        addSoundPanel(); // Add new panels until count matches preset
+      }
+      for (let i = 0; i < preset.length; i++) {
+        document.getElementById('videoInput' + (i + 1)).value = preset[i].videoId;
+        document.getElementById('slider' + (i + 1)).value = preset[i].volume;
+        document.getElementById('soundName' + (i + 1)).value = preset[i].soundName;
+        if (preset[i].videoId) loadVideo(i);
+        else updateVolume(i, preset[i].volume);
+      }
       alert("Preset loaded!");
     }
+    
     function updateProfilePresetList() {
       let listElem = document.getElementById('presetListProfile');
       listElem.innerHTML = "";
@@ -720,6 +626,50 @@
           listElem.appendChild(li);
         }
       }
+    }
+    
+    /* ---------------------
+       Modular Addition of Sound Panels
+       --------------------- */
+    function addSoundPanel() {
+      // Determine the new index
+      let index = players.length;
+      
+      // Create new sound panel HTML
+      let panelHTML = `
+      <div class="player-control" id="player-control-${index+1}">
+        <input type="text" class="soundName" id="soundName${index+1}" value="Sound ${index+1}" />
+        <input type="text" class="videoInput" id="videoInput${index+1}" placeholder="YouTube video ID or URL" value="" />
+        <button onclick="loadVideo(${index})">Load Video</button>
+        <input type="range" min="0" max="100" value="50" id="slider${index+1}" oninput="updateVolume(${index}, this.value)">
+        <label for="slider${index+1}">Volume</label>
+      </div>`;
+      
+      // Append the new panel to the players grid
+      let grid = document.getElementById('playersGrid');
+      grid.insertAdjacentHTML('beforeend', panelHTML);
+      
+      // Create a new container for the YouTube player in the hidden players container
+      let playerDiv = document.createElement('div');
+      playerDiv.id = 'player' + index;
+      document.getElementById('players-container').appendChild(playerDiv);
+      
+      // Create a new YouTube Player for this panel
+      let newPlayer = new YT.Player(playerDiv.id, {
+        height: '0',
+        width: '0',
+        videoId: "",  // Initially blank; user can load a video
+        playerVars: {
+          'autoplay': 0,
+          'controls': 0,
+          'loop': 1,
+          'playsinline': 1
+        },
+        events: { 'onReady': onPlayerReady }
+      });
+      
+      // Add the new player to the players array
+      players.push(newPlayer);
     }
   </script>
 </body>
