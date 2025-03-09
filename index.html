@@ -24,7 +24,7 @@
       width: 100%; height: 100%;
       z-index: -1;
     }
-    /* Login Page Styles */
+    /* Login Page */
     #loginPage {
       display: flex;
       align-items: center;
@@ -53,7 +53,7 @@
       transition: background 0.3s;
     }
     #loginForm button:hover { background: #b7952b; }
-    /* App Page Styles */
+    /* App Page */
     #appPage {
       display: none;
       flex-direction: column;
@@ -68,7 +68,6 @@
       border-bottom: 1px solid #444;
     }
     header h1 { font-size: 2em; color: #d4af37; }
-    /* User Profile in Header */
     #userProfile { font-size: 1em; }
     #userProfile button {
       margin-left: 10px; padding: 5px 10px;
@@ -109,10 +108,7 @@
     }
     #fadeCounter { text-align: center; margin-top: 10px; font-size: 1.1em; }
     /* Add Sound Button */
-    .add-sound {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+    .add-sound { text-align: center; margin-bottom: 20px; }
     .add-sound button {
       padding: 10px 20px; font-size: 1em;
       border: none; border-radius: 5px;
@@ -138,7 +134,6 @@
       border: 1px solid #444; border-radius: 5px;
       background: #1e1e1e; color: #f5f5f5;
     }
-    /* Volume slider and video input */
     .player-control input[type="range"] {
       width: 100%; margin: 10px 0;
     }
@@ -147,7 +142,6 @@
       padding: 8px; border: 1px solid #444; border-radius: 5px;
       background: #1e1e1e; color: #f5f5f5;
     }
-    /* Buttons within each panel */
     .player-control button {
       padding: 5px 10px; border: none;
       border-radius: 5px; background: #d4af37;
@@ -155,6 +149,7 @@
       transition: background 0.3s; margin-top: 5px;
     }
     .player-control button:hover { background: #b7952b; }
+    /* Remove button will remain, so keep that style */
     /* Preset Controls */
     .preset-controls {
       margin: 20px 0; text-align: center;
@@ -182,11 +177,9 @@
     }
     /* Profile Page */
     #profilePage {
-      display: none;
-      padding: 20px; max-width: 600px;
-      margin: 20px auto;
-      background: #262626;
-      border-radius: 10px;
+      display: none; padding: 20px;
+      max-width: 600px; margin: 20px auto;
+      background: #262626; border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     #profilePage h2 { text-align: center; margin-bottom: 20px; color: #d4af37; }
@@ -198,8 +191,9 @@
     #profilePage button {
       padding: 10px; border: none;
       border-radius: 5px; background: #d4af37;
-      color: #1e1e1e; cursor: pointer; width: 48%;
-      margin: 5px 1%; transition: background 0.3s;
+      color: #1e1e1e; cursor: pointer;
+      width: 48%; margin: 5px 1%;
+      transition: background 0.3s;
     }
     #profilePage button:hover { background: #b7952b; }
     #profilePresets { margin-top: 20px; }
@@ -221,9 +215,7 @@
       .controls button, .preset-controls button {
         padding: 8px 12px; font-size: 0.9em;
       }
-      .controls input[type="number"], .controls select {
-        width: 60px;
-      }
+      .controls input[type="number"], .controls select { width: 60px; }
       .player-control input.soundName, .player-control input.videoInput {
         font-size: 0.9em;
       }
@@ -285,7 +277,6 @@
           <button onclick="loadVideo(0)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider1" oninput="updateVolume(0, this.value)">
           <label for="slider1">Volume</label>
-          <button onclick="toggleSound(0)" id="toggleBtn1">Mute</button>
           <button onclick="removeSoundPanel(0)" id="removeBtn1">Remove</button>
         </div>
         <div class="player-control" id="player-control-2">
@@ -294,7 +285,6 @@
           <button onclick="loadVideo(1)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider2" oninput="updateVolume(1, this.value)">
           <label for="slider2">Volume</label>
-          <button onclick="toggleSound(1)" id="toggleBtn2">Mute</button>
           <button onclick="removeSoundPanel(1)" id="removeBtn2">Remove</button>
         </div>
         <div class="player-control" id="player-control-3">
@@ -303,7 +293,6 @@
           <button onclick="loadVideo(2)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider3" oninput="updateVolume(2, this.value)">
           <label for="slider3">Volume</label>
-          <button onclick="toggleSound(2)" id="toggleBtn3">Mute</button>
           <button onclick="removeSoundPanel(2)" id="removeBtn3">Remove</button>
         </div>
         <div class="player-control" id="player-control-4">
@@ -312,7 +301,6 @@
           <button onclick="loadVideo(3)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider4" oninput="updateVolume(3, this.value)">
           <label for="slider4">Volume</label>
-          <button onclick="toggleSound(3)" id="toggleBtn4">Mute</button>
           <button onclick="removeSoundPanel(3)" id="removeBtn4">Remove</button>
         </div>
         <div class="player-control" id="player-control-5">
@@ -321,7 +309,6 @@
           <button onclick="loadVideo(4)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider5" oninput="updateVolume(4, this.value)">
           <label for="slider5">Volume</label>
-          <button onclick="toggleSound(4)" id="toggleBtn5">Mute</button>
           <button onclick="removeSoundPanel(4)" id="removeBtn5">Remove</button>
         </div>
         <div class="player-control" id="player-control-6">
@@ -330,7 +317,6 @@
           <button onclick="loadVideo(5)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider6" oninput="updateVolume(5, this.value)">
           <label for="slider6">Volume</label>
-          <button onclick="toggleSound(5)" id="toggleBtn6">Mute</button>
           <button onclick="removeSoundPanel(5)" id="removeBtn6">Remove</button>
         </div>
       </div>
@@ -591,9 +577,8 @@
       let presetData = localStorage.getItem(key);
       if (!presetData) { alert("Preset not found."); return; }
       let preset = JSON.parse(presetData);
-      // If preset has more panels than exist, add panels
+      // Adjust panels if needed
       while (players.length < preset.length) { addSoundPanel(); }
-      // If preset has fewer panels, you could optionally remove extra panels
       for (let i = 0; i < preset.length; i++) {
         document.getElementById('videoInput' + (i + 1)).value = preset[i].videoId;
         document.getElementById('slider' + (i + 1)).value = preset[i].volume;
@@ -628,7 +613,6 @@
         <button onclick="loadVideo(${index})">Load Video</button>
         <input type="range" min="0" max="100" value="50" id="slider${index+1}" oninput="updateVolume(${index}, this.value)">
         <label for="slider${index+1}">Volume</label>
-        <button onclick="toggleSound(${index})" id="toggleBtn${index+1}">Mute</button>
         <button onclick="removeSoundPanel(${index})" id="removeBtn${index+1}">Remove</button>
       </div>`;
       document.getElementById('playersGrid').insertAdjacentHTML('beforeend', panelHTML);
@@ -680,25 +664,9 @@
         let slider = panels[i].querySelector("input[type='range']");
         slider.id = "slider" + (i+1);
         slider.setAttribute("oninput", "updateVolume(" + i + ", this.value)");
-        let buttons = panels[i].getElementsByTagName("button");
-        // Assume order: load, toggle, remove
-        buttons[0].setAttribute("onclick", "loadVideo(" + i + ")");
-        buttons[1].setAttribute("onclick", "toggleSound(" + i + ")");
-        buttons[1].id = "toggleBtn" + (i+1);
-        buttons[2].setAttribute("onclick", "removeSoundPanel(" + i + ")");
-        buttons[2].id = "removeBtn" + (i+1);
-      }
-    }
-    
-    function toggleSound(index) {
-      let player = players[index];
-      let btn = document.getElementById("toggleBtn" + (index+1));
-      if (player.isMuted()) {
-        player.unMute();
-        btn.textContent = "Mute";
-      } else {
-        player.mute();
-        btn.textContent = "Unmute";
+        let btn = panels[i].querySelector("button:last-of-type");
+        btn.setAttribute("onclick", "removeSoundPanel(" + i + ")");
+        btn.id = "removeBtn" + (i+1);
       }
     }
   </script>
