@@ -24,7 +24,7 @@
       width: 100%; height: 100%;
       z-index: -1;
     }
-    /* Login Page */
+    /* Login Page Styles */
     #loginPage {
       display: flex;
       align-items: center;
@@ -53,7 +53,7 @@
       transition: background 0.3s;
     }
     #loginForm button:hover { background: #b7952b; }
-    /* App Page */
+    /* App Page Styles (flex layout for sticky footer) */
     #appPage {
       display: none;
       flex-direction: column;
@@ -68,6 +68,7 @@
       border-bottom: 1px solid #444;
     }
     header h1 { font-size: 2em; color: #d4af37; }
+    /* User Profile in Header */
     #userProfile { font-size: 1em; }
     #userProfile button {
       margin-left: 10px; padding: 5px 10px;
@@ -93,10 +94,14 @@
       align-items: center;
     }
     .controls button {
-      padding: 10px 20px; font-size: 1em;
-      border: none; border-radius: 5px;
-      background: #d4af37; color: #1e1e1e;
-      cursor: pointer; transition: background 0.3s;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background: #d4af37;
+      color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
     }
     .controls button:hover { background: #b7952b; }
     .controls label { font-size: 1em; }
@@ -108,12 +113,19 @@
     }
     #fadeCounter { text-align: center; margin-top: 10px; font-size: 1.1em; }
     /* Add Sound Button */
-    .add-sound { text-align: center; margin-bottom: 20px; }
+    .add-sound {
+      text-align: center;
+      margin-bottom: 20px;
+    }
     .add-sound button {
-      padding: 10px 20px; font-size: 1em;
-      border: none; border-radius: 5px;
-      background: #d4af37; color: #1e1e1e;
-      cursor: pointer; transition: background 0.3s;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background: #d4af37;
+      color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
     }
     .add-sound button:hover { background: #b7952b; }
     /* Players Grid */
@@ -124,32 +136,36 @@
     }
     .player-control {
       background: #2c2c2c;
-      padding: 15px; border-radius: 10px;
+      padding: 15px;
+      border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
     .player-control h3 { margin-bottom: 5px; color: #d4af37; }
     /* Editable Sound Name */
     .player-control input.soundName {
-      width: 100%; padding: 5px; margin-bottom: 5px;
-      border: 1px solid #444; border-radius: 5px;
-      background: #1e1e1e; color: #f5f5f5;
+      width: 100%; padding: 5px;
+      margin-bottom: 5px; border: 1px solid #444;
+      border-radius: 5px; background: #1e1e1e;
+      color: #f5f5f5;
     }
     .player-control input[type="range"] {
       width: 100%; margin: 10px 0;
     }
     .player-control input[type="text"].videoInput {
-      width: calc(100% - 20px); margin: 5px 10px;
-      padding: 8px; border: 1px solid #444; border-radius: 5px;
+      width: calc(100% - 20px);
+      margin: 5px 10px; padding: 8px;
+      border: 1px solid #444; border-radius: 5px;
       background: #1e1e1e; color: #f5f5f5;
     }
     .player-control button {
-      padding: 5px 10px; border: none;
-      border-radius: 5px; background: #d4af37;
-      color: #1e1e1e; cursor: pointer;
-      transition: background 0.3s; margin-top: 5px;
+      padding: 5px 10px;
+      border: none; border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 5px;
     }
     .player-control button:hover { background: #b7952b; }
-    /* Remove button will remain, so keep that style */
     /* Preset Controls */
     .preset-controls {
       margin: 20px 0; text-align: center;
@@ -165,21 +181,28 @@
       color: #f5f5f5;
     }
     .preset-controls button {
-      padding: 8px 15px; border: none;
-      border-radius: 5px; background: #d4af37;
-      color: #1e1e1e; cursor: pointer;
-      transition: background 0.3s; margin: 5px;
+      padding: 8px 15px;
+      border: none; border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin: 5px;
     }
     .preset-controls button:hover { background: #b7952b; }
     footer {
-      background: #262626; padding: 20px;
-      text-align: center; border-top: 1px solid #444;
+      background: #262626;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #444;
     }
     /* Profile Page */
     #profilePage {
-      display: none; padding: 20px;
-      max-width: 600px; margin: 20px auto;
-      background: #262626; border-radius: 10px;
+      display: none;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #262626;
+      border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     #profilePage h2 { text-align: center; margin-bottom: 20px; color: #d4af37; }
@@ -190,20 +213,23 @@
     }
     #profilePage button {
       padding: 10px; border: none;
-      border-radius: 5px; background: #d4af37;
-      color: #1e1e1e; cursor: pointer;
-      width: 48%; margin: 5px 1%;
-      transition: background 0.3s;
+      border-radius: 5px;
+      background: #d4af37; color: #1e1e1e;
+      cursor: pointer; width: 48%;
+      margin: 5px 1%; transition: background 0.3s;
     }
     #profilePage button:hover { background: #b7952b; }
     #profilePresets { margin-top: 20px; }
     #profilePresets h3 { margin-bottom: 10px; color: #d4af37; }
     #profilePresets ul { list-style: none; padding-left: 10px; }
     #profilePresets li { margin-bottom: 5px; }
-    /* Hidden YouTube Players */
+    /* Hide YouTube players */
     .hidden-player {
-      position: absolute; width: 0; height: 0;
-      overflow: hidden; opacity: 0;
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
     }
     /* Responsive Adjustments */
     @media (max-width: 768px) { .controls { flex-direction: column; } }
@@ -268,16 +294,15 @@
       <div class="add-sound">
         <button onclick="addSoundPanel()">Add Sound</button>
       </div>
-      <!-- Players Grid -->
+      <!-- Players Grid (Sound Panels) -->
       <div class="players-grid" id="playersGrid">
-        <!-- Default 6 Panels -->
+        <!-- Initially 6 sound panels defined in HTML -->
         <div class="player-control" id="player-control-1">
           <input type="text" class="soundName" id="soundName1" value="River sounds" />
           <input type="text" class="videoInput" id="videoInput1" placeholder="YouTube video ID or URL" value="nE_XAauwu1I"/>
           <button onclick="loadVideo(0)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider1" oninput="updateVolume(0, this.value)">
           <label for="slider1">Volume</label>
-          <button onclick="removeSoundPanel(0)" id="removeBtn1">Remove</button>
         </div>
         <div class="player-control" id="player-control-2">
           <input type="text" class="soundName" id="soundName2" value="Palm Tree Sounds" />
@@ -285,7 +310,6 @@
           <button onclick="loadVideo(1)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider2" oninput="updateVolume(1, this.value)">
           <label for="slider2">Volume</label>
-          <button onclick="removeSoundPanel(1)" id="removeBtn2">Remove</button>
         </div>
         <div class="player-control" id="player-control-3">
           <input type="text" class="soundName" id="soundName3" value="Gong sounds" />
@@ -293,7 +317,6 @@
           <button onclick="loadVideo(2)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider3" oninput="updateVolume(2, this.value)">
           <label for="slider3">Volume</label>
-          <button onclick="removeSoundPanel(2)" id="removeBtn3">Remove</button>
         </div>
         <div class="player-control" id="player-control-4">
           <input type="text" class="soundName" id="soundName4" value="Rain sounds" />
@@ -301,7 +324,6 @@
           <button onclick="loadVideo(3)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider4" oninput="updateVolume(3, this.value)">
           <label for="slider4">Volume</label>
-          <button onclick="removeSoundPanel(3)" id="removeBtn4">Remove</button>
         </div>
         <div class="player-control" id="player-control-5">
           <input type="text" class="soundName" id="soundName5" value="City sounds" />
@@ -309,7 +331,6 @@
           <button onclick="loadVideo(4)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider5" oninput="updateVolume(4, this.value)">
           <label for="slider5">Volume</label>
-          <button onclick="removeSoundPanel(4)" id="removeBtn5">Remove</button>
         </div>
         <div class="player-control" id="player-control-6">
           <input type="text" class="soundName" id="soundName6" value="Bird sounds" />
@@ -317,7 +338,6 @@
           <button onclick="loadVideo(5)">Load Video</button>
           <input type="range" min="0" max="100" value="50" id="slider6" oninput="updateVolume(5, this.value)">
           <label for="slider6">Volume</label>
-          <button onclick="removeSoundPanel(5)" id="removeBtn6">Remove</button>
         </div>
       </div>
       <!-- Preset Controls -->
@@ -439,16 +459,19 @@
       "YF3pj_3mdMc",
       "MOu4_wpy40U"
     ];
+    // onYouTubeIframeAPIReady is called automatically by the YouTube API
     function onYouTubeIframeAPIReady() {
       var container = document.getElementById('players-container');
-      // Initialize default panels (assumes 6 already exist in HTML)
+      // Initialize the 6 default players (they are defined in HTML)
       for (let i = 0; i < 6; i++) {
         let div = document.getElementById('player' + i);
+        // If the player container doesn't exist (from dynamic addition), create it:
         if (!div) {
           div = document.createElement('div');
           div.id = 'player' + i;
           container.appendChild(div);
         }
+        // Create a new YT.Player for each container
         players[i] = new YT.Player(div.id, {
           height: '0',
           width: '0',
@@ -533,6 +556,7 @@
         if (remaining <= 0) {
           clearInterval(fadeTimer);
           counterElem.innerHTML = "Fade out complete";
+          // Stop all players after fade-out finishes
           globalStop();
         } else {
           counterElem.innerHTML = "Fade out in progress: " + remaining + " sec";
@@ -577,8 +601,10 @@
       let presetData = localStorage.getItem(key);
       if (!presetData) { alert("Preset not found."); return; }
       let preset = JSON.parse(presetData);
-      // Adjust panels if needed
-      while (players.length < preset.length) { addSoundPanel(); }
+      // Adjust the number of sound panels if needed
+      while (players.length < preset.length) {
+        addSoundPanel(); // Add new panels until count matches preset
+      }
       for (let i = 0; i < preset.length; i++) {
         document.getElementById('videoInput' + (i + 1)).value = preset[i].videoId;
         document.getElementById('slider' + (i + 1)).value = preset[i].volume;
@@ -588,6 +614,7 @@
       }
       alert("Preset loaded!");
     }
+    
     function updateProfilePresetList() {
       let listElem = document.getElementById('presetListProfile');
       listElem.innerHTML = "";
@@ -602,10 +629,13 @@
     }
     
     /* ---------------------
-       Modular Sound Panels
+       Modular Addition of Sound Panels
        --------------------- */
     function addSoundPanel() {
+      // Determine the new index
       let index = players.length;
+      
+      // Create new sound panel HTML
       let panelHTML = `
       <div class="player-control" id="player-control-${index+1}">
         <input type="text" class="soundName" id="soundName${index+1}" value="Sound ${index+1}" />
@@ -613,20 +643,22 @@
         <button onclick="loadVideo(${index})">Load Video</button>
         <input type="range" min="0" max="100" value="50" id="slider${index+1}" oninput="updateVolume(${index}, this.value)">
         <label for="slider${index+1}">Volume</label>
-        <button onclick="removeSoundPanel(${index})" id="removeBtn${index+1}">Remove</button>
       </div>`;
-      document.getElementById('playersGrid').insertAdjacentHTML('beforeend', panelHTML);
       
-      // Create a new hidden container for the YouTube player.
+      // Append the new panel to the players grid
+      let grid = document.getElementById('playersGrid');
+      grid.insertAdjacentHTML('beforeend', panelHTML);
+      
+      // Create a new container for the YouTube player in the hidden players container
       let playerDiv = document.createElement('div');
       playerDiv.id = 'player' + index;
       document.getElementById('players-container').appendChild(playerDiv);
       
-      // Create the new YouTube player.
+      // Create a new YouTube Player for this panel
       let newPlayer = new YT.Player(playerDiv.id, {
         height: '0',
         width: '0',
-        videoId: "",
+        videoId: "",  // Initially blank; user can load a video
         playerVars: {
           'autoplay': 0,
           'controls': 0,
@@ -636,38 +668,8 @@
         events: { 'onReady': onPlayerReady }
       });
       
+      // Add the new player to the players array
       players.push(newPlayer);
-    }
-    
-    function removeSoundPanel(index) {
-      // Remove the panel from the DOM.
-      let panel = document.getElementById('player-control-' + (index+1));
-      if(panel) { panel.parentNode.removeChild(panel); }
-      // Remove the corresponding YouTube player container.
-      let playerDiv = document.getElementById('player' + index);
-      if(playerDiv) { playerDiv.parentNode.removeChild(playerDiv); }
-      // Remove the player from the array.
-      players.splice(index, 1);
-      // Re-index the remaining panels.
-      updatePanels();
-    }
-    
-    function updatePanels() {
-      let grid = document.getElementById('playersGrid');
-      let panels = grid.getElementsByClassName("player-control");
-      for (let i = 0; i < panels.length; i++) {
-        panels[i].id = "player-control-" + (i+1);
-        let sn = panels[i].querySelector(".soundName");
-        sn.id = "soundName" + (i+1);
-        let vi = panels[i].querySelector(".videoInput");
-        vi.id = "videoInput" + (i+1);
-        let slider = panels[i].querySelector("input[type='range']");
-        slider.id = "slider" + (i+1);
-        slider.setAttribute("oninput", "updateVolume(" + i + ", this.value)");
-        let btn = panels[i].querySelector("button:last-of-type");
-        btn.setAttribute("onclick", "removeSoundPanel(" + i + ")");
-        btn.id = "removeBtn" + (i+1);
-      }
     }
   </script>
 </body>
