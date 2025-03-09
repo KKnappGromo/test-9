@@ -397,42 +397,42 @@
           <input type="text" class="soundName" id="soundName1" value="Sound 1" />
           <input type="text" class="videoInput" id="videoInput1" placeholder="YouTube video ID or URL" value="nE_XAauwu1I"/>
           <button onclick="loadVideo(0)">Load Video</button>
-          <input type="range" min="0" max="100" value="50" id="slider1" onchange="updateVolume(0, this.value)">
+          <input type="range" min="0" max="100" value="50" id="slider1" oninput="updateVolume(0, this.value)">
           <label for="slider1">Volume</label>
         </div>
         <div class="player-control" id="player-control-2">
           <input type="text" class="soundName" id="soundName2" value="Sound 2" />
           <input type="text" class="videoInput" id="videoInput2" placeholder="YouTube video ID or URL" value="H2gIQ8p1HQA"/>
           <button onclick="loadVideo(1)">Load Video</button>
-          <input type="range" min="0" max="100" value="50" id="slider2" onchange="updateVolume(1, this.value)">
+          <input type="range" min="0" max="100" value="50" id="slider2" oninput="updateVolume(1, this.value)">
           <label for="slider2">Volume</label>
         </div>
         <div class="player-control" id="player-control-3">
           <input type="text" class="soundName" id="soundName3" value="Sound 3" />
           <input type="text" class="videoInput" id="videoInput3" placeholder="YouTube video ID or URL" value="b1iq8y9Tvd4"/>
           <button onclick="loadVideo(2)">Load Video</button>
-          <input type="range" min="0" max="100" value="50" id="slider3" onchange="updateVolume(2, this.value)">
+          <input type="range" min="0" max="100" value="50" id="slider3" oninput="updateVolume(2, this.value)">
           <label for="slider3">Volume</label>
         </div>
         <div class="player-control" id="player-control-4">
           <input type="text" class="soundName" id="soundName4" value="Sound 4" />
           <input type="text" class="videoInput" id="videoInput4" placeholder="YouTube video ID or URL" value="jX6kn9_U8qk"/>
           <button onclick="loadVideo(3)">Load Video</button>
-          <input type="range" min="0" max="100" value="50" id="slider4" onchange="updateVolume(3, this.value)">
+          <input type="range" min="0" max="100" value="50" id="slider4" oninput="updateVolume(3, this.value)">
           <label for="slider4">Volume</label>
         </div>
         <div class="player-control" id="player-control-5">
           <input type="text" class="soundName" id="soundName5" value="Sound 5" />
           <input type="text" class="videoInput" id="videoInput5" placeholder="YouTube video ID or URL" value="YF3pj_3mdMc"/>
           <button onclick="loadVideo(4)">Load Video</button>
-          <input type="range" min="0" max="100" value="50" id="slider5" onchange="updateVolume(4, this.value)">
+          <input type="range" min="0" max="100" value="50" id="slider5" oninput="updateVolume(4, this.value)">
           <label for="slider5">Volume</label>
         </div>
         <div class="player-control" id="player-control-6">
           <input type="text" class="soundName" id="soundName6" value="Sound 6" />
           <input type="text" class="videoInput" id="videoInput6" placeholder="YouTube video ID or URL" value="MOu4_wpy40U"/>
           <button onclick="loadVideo(5)">Load Video</button>
-          <input type="range" min="0" max="100" value="50" id="slider6" onchange="updateVolume(5, this.value)">
+          <input type="range" min="0" max="100" value="50" id="slider6" oninput="updateVolume(5, this.value)">
           <label for="slider6">Volume</label>
         </div>
       </div>
@@ -481,7 +481,6 @@
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
       if(username && email && password) {
-        // Store user profile in localStorage
         localStorage.setItem("userProfile", JSON.stringify({username, email, password}));
         document.getElementById('loginPage').style.display = 'none';
         document.getElementById('appPage').style.display = 'flex';
@@ -570,7 +569,8 @@
             'autoplay': 0,
             'controls': 0,
             'loop': 1,
-            'playlist': defaultVideos[i]
+            'playlist': defaultVideos[i],
+            'playsinline': 1
           },
           events: {
             'onReady': onPlayerReady
@@ -590,13 +590,11 @@
         players[playerIndex].setVolume(volume);
       }
     }
-    // Updated globalPlay function with delay to help mobile playback
+    // Global play now starts all players concurrently
     function globalPlay() {
-      players.forEach(function(player, index) {
-        setTimeout(function(){
-          if (player.unMute) player.unMute();
-          if (player.playVideo) player.playVideo();
-        }, index * 300);
+      players.forEach(function(player) {
+        if (player.unMute) player.unMute();
+        if (player.playVideo) player.playVideo();
       });
     }
     function globalStop() {
