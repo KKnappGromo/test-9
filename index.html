@@ -171,7 +171,7 @@
       margin-bottom: 5px;
       color: #d4af37;
     }
-    /* Editable Sound Name - Updated Default Values */
+    /* Editable Sound Name with updated defaults */
     .player-control input.soundName {
       width: 100%;
       padding: 5px;
@@ -181,14 +181,8 @@
       background: #1e1e1e;
       color: #f5f5f5;
     }
-    /* Default names:
-       Sound 1 -> River sounds
-       Sound 2 -> Palm Tree Sounds
-       Sound 3 -> Gong sounds
-       Sound 4 -> Rain sounds
-       Sound 5 -> City sounds
-       Sound 6 -> Bird sounds
-    */
+    /* Default sound names: */
+    /* River sounds, Palm Tree Sounds, Gong sounds, Rain sounds, City sounds, Bird sounds */
     /* Volume slider and video input styles */
     .player-control input[type="range"] {
       width: 100%;
@@ -592,6 +586,8 @@
       if (index > -1) {
         let slider = document.getElementById('slider' + (index + 1));
         event.target.setVolume(parseInt(slider.value));
+        // Unmute immediately so that it can play audio
+        event.target.unMute();
       }
     }
     function updateVolume(playerIndex, volume) {
