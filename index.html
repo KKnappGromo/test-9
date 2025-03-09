@@ -590,7 +590,6 @@
         players[playerIndex].setVolume(volume);
       }
     }
-    // Global play now starts all players concurrently
     function globalPlay() {
       players.forEach(function(player) {
         if (player.unMute) player.unMute();
@@ -648,6 +647,8 @@
         if (remaining <= 0) {
           clearInterval(fadeTimer);
           counterElem.innerHTML = "Fade out complete";
+          // Stop all players after fade-out finishes
+          globalStop();
         } else {
           counterElem.innerHTML = "Fade out in progress: " + remaining + " sec";
         }
@@ -655,7 +656,7 @@
     }
     
     /* ---------------------
-       Preset Functions
+       Preset Functions (using localStorage)
        --------------------- */
     function savePreset() {
       let presetName = document.getElementById('newPresetName').value;
