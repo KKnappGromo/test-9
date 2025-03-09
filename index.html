@@ -79,22 +79,20 @@
       min-height: 100vh;
     }
     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: #262626;
       padding: 20px;
-      text-align: center;
       border-bottom: 1px solid #444;
-      position: relative;
     }
     header h1 {
       font-size: 2em;
-      margin-bottom: 5px;
+      margin: 0;
       color: #d4af37;
     }
     /* User Profile in Header */
     #userProfile {
-      position: absolute;
-      top: 10px;
-      right: 20px;
       font-size: 1em;
     }
     #userProfile button {
@@ -345,15 +343,10 @@
         padding: 5px 8px;
         font-size: 0.9em;
       }
-      .preset-controls input[type="text"] {
-        width: 150px;
-      }
       .players-grid {
         grid-template-columns: 1fr;
       }
       #userProfile {
-        top: 5px;
-        right: 10px;
         font-size: 0.8em;
       }
     }
@@ -375,7 +368,6 @@
   <div id="appPage">
     <header>
       <h1>Sleep Music Mixer</h1>
-      <p>Blend ambient sounds for a restful night</p>
       <div id="userProfile">
         <span id="welcomeUser"></span>
         <button onclick="showProfile()">Profile</button>
@@ -598,10 +590,13 @@
         players[playerIndex].setVolume(volume);
       }
     }
+    // Updated globalPlay function with delay to help mobile playback
     function globalPlay() {
-      players.forEach(function(player) {
-        if (player.unMute) player.unMute();
-        if (player.playVideo) player.playVideo();
+      players.forEach(function(player, index) {
+        setTimeout(function(){
+          if (player.unMute) player.unMute();
+          if (player.playVideo) player.playVideo();
+        }, index * 300);
       });
     }
     function globalStop() {
